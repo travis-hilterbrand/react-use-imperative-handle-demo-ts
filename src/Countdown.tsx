@@ -1,19 +1,19 @@
 import React from "react";
 
 export type CountdownRef = HTMLDivElement;
-export type CountdownActionRef = {
+export type CountdownActionsRef = {
   triggerAlert: () => void | undefined;
 };
 
 export type CountdownProps = {
-  action?: React.Ref<CountdownActionRef>;
+  actions?: React.Ref<CountdownActionsRef>;
   label: string;
 };
 const Countdown = React.forwardRef<CountdownRef, CountdownProps>(
   (props: CountdownProps, ref) => {
-    const { action, label } = props;
+    const { actions, label } = props;
     React.useImperativeHandle(
-      action,
+      actions,
       () => ({
         triggerAlert: () => alert("called"),
       }),

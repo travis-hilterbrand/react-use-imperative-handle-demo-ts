@@ -1,10 +1,10 @@
 import React from "react";
 
 import "./App.css";
-import Countdown, { CountdownActionRef, CountdownRef } from "./Countdown";
+import Countdown, { CountdownActionsRef, CountdownRef } from "./Countdown";
 
 function App() {
-  const actionRef = React.useRef<CountdownActionRef>(null);
+  const actionRef = React.useRef<CountdownActionsRef>(null);
   const countdownRef = React.useRef<CountdownRef>(null);
   const handleAlertClick = () => {
     actionRef.current?.triggerAlert();
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <Countdown ref={countdownRef} action={actionRef} label={"Countdown"} />
+      <Countdown ref={countdownRef} actions={actionRef} label={"Countdown"} />
       <div>
         <button onClick={handleAlertClick}>Alert</button>
       </div>
